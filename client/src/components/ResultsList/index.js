@@ -3,7 +3,7 @@ import "./style.css";
 
 function ResultList(props) {
   return (
-    <div className="resulListDiv">
+    <div className="resultListDiv">
       {props.children}
     </div>
   );

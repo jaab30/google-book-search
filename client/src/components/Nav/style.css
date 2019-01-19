@@ -1,0 +1,59 @@
+
+ul {
+    background: #2a972a;
+    list-style-type: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+}
+
+  
+  li {
+    display: block;
+    font-family: 'Homenaje', sans-serif;
+    float: left;
+    font-size: 1.5em;
+    color: white;
+    text-align: center;
+  }
+  
+  li a {
+    display: inline-block;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    padding: 12px 16px 10px;
+    margin: 0;
+    border-right: solid 1px white;
+    background: #2a972a;
+  }
+
+  .active {
+    background: rgb(242, 186, 41)
+
+
+  }
+
+  .navImg {
+    width: 55px;
+    height: auto;
+    margin: 0;
+    padding: 3px 5px 0 0;
+
+
+
+  }
+
+
+
+/* font-family: 'Patua One', cursive;
+font-family: 'Cherry Cream Soda', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Acme', sans-serif;
+font-family: 'Homenaje', sans-serif;
+font-family: 'Mukta Malar', sans-serif; 
+font-family: 'Londrina Solid', cursive;
+font-family: 'Oregano', cursive;
+font-family: 'Roboto', sans-serif; */

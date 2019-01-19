@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./style.css"
 
 function Nav() {
   return (
     <ul className="">
       <li className="">
         <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
-         Google Book Search
+        <img className="navImg" src="./assets/img/books.png"></img>
         </Link>
       </li>
       <li className="nav-item">

@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import Jumbotron from "../components/Jumbotron";
-import Form from "../components/Form";
-import ResultsListItem from "../components/ResultsListItem";
-import ResultsList from "../components/ResultsList";
-import API from "../utils/API";
+import Jumbotron from "../Jumbotron";
+import Form from "../Form";
+import ResultsListItem from "../ResultsListItem";
+import ResultsList from "../ResultsList";
+import API from "../../utils/API";
 import { Link } from "react-router-dom";
+import "./style.css"
 
 
 class SearchBooks extends Component {
@@ -77,7 +78,10 @@ class SearchBooks extends Component {
 
         return (
             <div>
-                <Jumbotron></Jumbotron>
+                <Jumbotron
+                    title={"Google Books Search"}
+                    subTitle={"Search for and Save Books of interest"}>
+                    </Jumbotron>
                 <Form
                     query={this.state.search}
                     handleInputChange={this.handleInputChange}
@@ -87,9 +91,7 @@ class SearchBooks extends Component {
                 <ResultsList>
                     {this.state.books.map((book, i) => {
                         if (book.volumeInfo.imageLinks === undefined) {
-                            console.log("yes")
                             return (
-                                console.log(book.volumeInfo.imageLinks),
                                 <ResultsListItem
                                     key={i}
                                     bookId={i}

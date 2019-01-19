@@ -1,16 +1,17 @@
-.resultItemDiv {
+
+.savedItemDiv {
     background: rgb(61, 160, 61, 0.4);
     grid-column-start: 2;
     display: grid;
     grid-template-columns: 15% 73% 6% 6%;
     padding: 20px 20px;
-    margin: 10px 0;
+    margin: 10px 0 0 0;
     border-radius: 0 20px 20px 20px;
     /* border: solid 3px rgb(0, 0, 0, 0.5); */
     box-shadow:2px 3px 10px rgb(128, 128, 128, 0.6);
 }
 
-.resultItemDiv h2 {
+.savedItemDiv h2 {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 1;
@@ -22,7 +23,7 @@
 
 
 }
-.subTitle {
+.subTitleSaved {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 2;
@@ -34,7 +35,7 @@
     padding: 5px 30px 5px;
 
 }
-.author {
+.authorSaved {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;
@@ -46,7 +47,7 @@
 
 
 }
-.imgDiv {
+.imgDivSaved {
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 4;
@@ -63,7 +64,7 @@ img {
 
 }
 
-.description {
+.descriptionSaved {
     grid-column-start: 2;
     grid-column-end: 5;
     grid-row-start: 4;
@@ -80,7 +81,7 @@ img {
 a {
     text-decoration: none;
 }
-.btnView {
+.viewBtnSaved {
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 1;
@@ -97,7 +98,7 @@ a {
     margin: 5px 0 0 0;
 
 }
-.btnSave {
+.deleteBtnSaved {
     grid-column-start: 4;
     grid-column-end: 5;
     grid-row-start: 1;
@@ -113,31 +114,34 @@ a {
     font-weight: 700;
     color: white;
     margin: 5px 0 0 0;
-
 }
-.btnView:hover {
+.viewBtnSaved:hover {
     background: rgb(42, 151, 42, 0.7);
     cursor: pointer;
-    
-
 }
-.btnSave:hover {
+.deleteBtnSaved:hover {
     background: rgb(42, 151, 42, 0.7);
     cursor: pointer;
-    
-
 }
-.btnView:active {
+.viewBtnSaved:active {
     width: 66px;
     height: 31px;
   }
-.btnSave:active {
-    width: 72px;
+.deleteBtnSaved:active {
+    width: 66px;
     height: 31px;
   }
-.btnView:focus{
+
+.viewBtnSaved:focus{
     outline:none;
 }
-.btnSave:focus{
+.deleteBtnSaved:focus{
     outline:none;
 }
+
+/* font-family: 'Patua One', cursive;
+font-family: 'Cherry Cream Soda', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Acme', sans-serif;
+font-family: 'Homenaje', sans-serif;
+font-family: 'Mukta Malar', sans-serif; */

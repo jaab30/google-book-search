@@ -1,12 +1,3 @@
-.resultListDiv {
-    /* background: black; */
-    display: grid;
-    grid-template-columns: 10% 80% 10%;
-    padding: 0 0 25px 0;
-
-}
-
-
 /* font-family: 'Patua One', cursive;
 font-family: 'Cherry Cream Soda', cursive;
 font-family: 'Montserrat', sans-serif;

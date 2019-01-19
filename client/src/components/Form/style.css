@@ -1,0 +1,66 @@
+.formContainer{
+    text-align: center;
+    margin: 10px;
+    
+
+
+
+
+}
+
+.formInput {
+    width: 500px;
+    height: 25px;
+    font-family: 'Mukta Malar', sans-serif;
+    font-size: 1em;
+    padding: 5px 10px; 
+    border-radius: 8px;
+    border: none;
+    border: solid 1.5px lightgray;
+    margin: 0 0 8px 0;
+    
+
+}
+.formInput:focus{
+    outline:none;
+}
+
+.formBtn {
+    padding: 5px 10px;
+    margin: 0 5px;
+    background: #2a972a;
+    border: none;
+    font-family: 'Mukta Malar', sans-serif; 
+    font-size: 1em;
+    color: white;
+    border-radius: 8px;
+    font-weight: 700;
+
+
+}
+.formBtn:hover {
+    padding: 5px 10px;  
+    background: rgb(42, 151, 42, 0.7);
+    cursor: pointer;
+  
+
+
+}
+
+.formBtn:focus{
+    outline:none;
+}
+.formBtn:active {
+   padding: 6px 11px;
+  }
+
+  
+/* font-family: 'Patua One', cursive;
+font-family: 'Cherry Cream Soda', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Acme', sans-serif;
+font-family: 'Homenaje', sans-serif;
+font-family: 'Mukta Malar', sans-serif; 
+font-family: 'Londrina Solid', cursive;
+font-family: 'Oregano', cursive;
+font-family: 'Roboto', sans-serif; */
