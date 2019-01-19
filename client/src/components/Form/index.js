@@ -10,9 +10,9 @@ export function Form(props) {
       <input
         onChange={props.handleInputChange}
         className="form-control"
-        placeholder="Seacrh for your favorite book"
+        placeholder="Search for your favorite book"
         name="search"
-        value={props.search}
+        value={props.query}
       />
       <button onClick={props.loadBooks} type="success">Submit</button>
     </form>

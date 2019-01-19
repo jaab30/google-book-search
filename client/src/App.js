@@ -9,11 +9,11 @@ function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        <Nav></Nav>
         <Switch>
           <Route exact path="/" component={SearchBooks} />
           <Route exact path="/books" component={SearchBooks} />
-          {/* <Route exact path="/saved" component={SavedBooks} /> */}
+          <Route exact path="/saved" component={SavedBooks} />
           <Route component={NoMatch} />
         </Switch>
       </div>

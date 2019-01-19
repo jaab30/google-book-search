@@ -11,11 +11,11 @@ class SearchBooks extends Component {
 
     state = {
         search: "",
-        books: []
+        books: [],
+        imageLink: "https://redhillcutlery.com/wp-content/uploads/2015/09/camera-no-image-1.jpg"
     };
 
     handleInputChange = event => {
-
         const { name, value } = event.target;
         this.setState({
             [name]: value
@@ -23,22 +23,59 @@ class SearchBooks extends Component {
     };
 
     loadBooks = event => {
-       
         event.preventDefault();
-        
-        API.search(this.state.search)
-            .then(res =>
-                this.setState({ books: res.data.items })
-            )
-            .catch(err => console.log(err));
-    };
+        if (this.state.search === "") {
+            alert("Please andter a Book Title")
+        } else {
+            API.search(this.state.search)
+                .then(res => {
+                    this.setState({ books: res.data.items, search: "", })
+                }
+                )
 
+                .then(res => {
+                    API.getBooks()
+                        .then(res => {
+                            for (let i = 0; i < res.data.length; i++) {
+                                let title = res.data[i].title
+                                for (let j = 0; j < this.state.books.length; j++) {
+                                    console.log(this.state.books)
+                                    if (title == this.state.books[j].volumeInfo.title) {
+                                        let newBookArray = [...this.state.books]
+                                        newBookArray.splice([j], 1)
+                                        console.log(newBookArray)
+                                        this.setState({ books: newBookArray })
+                                    }
+                                }
+                            }
+                        })
+                })
+                .catch(err => console.log(err));
+        }
+    }
+
+
+    saveBook = (id) => {
+        API.saveBook({
+            title: this.state.books[id].volumeInfo.title,
+            subtitle: this.state.books[id].volumeInfo.subtitle,
+            authors: this.state.books[id].volumeInfo.authors,
+            description: this.state.books[id].volumeInfo.description,
+            image: this.state.books[id].volumeInfo.imageLinks.thumbnail,
+            link: this.state.books[id].volumeInfo.previewLink
+        })
+            .then(res => {
+                let newBookArray = [...this.state.books]
+                newBookArray.splice([id], 1)
+                console.log(newBookArray)
+                this.setState({ books: newBookArray })
+            })
+            .catch(err => console.log(err));
+    }
 
     render() {
 
-
         return (
-
             <div>
                 <Jumbotron></Jumbotron>
                 <Form
@@ -49,42 +86,47 @@ class SearchBooks extends Component {
                 </Form>
                 <ResultsList>
                     {this.state.books.map((book, i) => {
-                        return (
-                            <ResultsListItem
-                                key={i}
-                                title={book.volumeInfo.title}
-                                subtitle={book.volumeInfo.subtitle}
-                                authors={book.volumeInfo.authors}
-                                description={book.volumeInfo.description}
-                                image={book.volumeInfo.imageLinks.thumbnail}
-                                link={book.volumeInfo.previewLink}
-                            />
-                        );
+                        if (book.volumeInfo.imageLinks === undefined) {
+                            console.log("yes")
+                            return (
+                                console.log(book.volumeInfo.imageLinks),
+                                <ResultsListItem
+                                    key={i}
+                                    bookId={i}
+                                    title={book.volumeInfo.title}
+                                    subtitle={book.volumeInfo.subtitle}
+                                    authors={book.volumeInfo.authors}
+                                    description={book.volumeInfo.description}
+                                    image={this.state.imageLink}
+                                    link={book.volumeInfo.previewLink}
+                                    saveBook={this.saveBook}
+                                    onMyListText={this.state.onMyListText}
+                                />
+                            )
+
+                        } else {
+                            return (
+                                console.log(book.volumeInfo.imageLinks),
+                                <ResultsListItem
+                                    key={i}
+                                    bookId={i}
+                                    title={book.volumeInfo.title}
+                                    subtitle={book.volumeInfo.subtitle}
+                                    authors={book.volumeInfo.authors}
+                                    description={book.volumeInfo.description}
+                                    image={book.volumeInfo.imageLinks.thumbnail}
+                                    link={book.volumeInfo.previewLink}
+                                    saveBook={this.saveBook}
+                                    onMyListText={this.state.onMyListText}
+                                />
+                            );
+                        }
+
                     })}
                 </ResultsList>
             </div>
-
-
-
-
         )
-
-
-
-
-
-
     }
-
 }
-
-// function SearchBooks() {
-//     return(
-//         <div>
-//             <h1>test</h1>
-//         </div>
-
-//     )
-// }
 
 export default SearchBooks;
