@@ -1,11 +1,6 @@
 .formContainer{
     text-align: center;
     margin: 10px;
-    
-
-
-
-
 }
 
 .formInput {
@@ -18,8 +13,6 @@
     border: none;
     border: solid 1.5px lightgray;
     margin: 0 0 8px 0;
-    
-
 }
 .formInput:focus{
     outline:none;
@@ -35,16 +28,11 @@
     color: white;
     border-radius: 8px;
     font-weight: 700;
-
-
 }
 .formBtn:hover {
     padding: 5px 10px;  
     background: rgb(42, 151, 42, 0.7);
     cursor: pointer;
-  
-
-
 }
 
 .formBtn:focus{
@@ -52,6 +40,22 @@
 }
 .formBtn:active {
    padding: 6px 11px;
+  }
+
+  @media screen and (max-width: 630px) {
+
+    .formInput {
+        width: 300px;
+        height: 25px;
+        font-family: 'Mukta Malar', sans-serif;
+        font-size: 1em;
+        padding: 5px 10px; 
+        border-radius: 8px;
+        border: none;
+        border: solid 1.5px lightgray;
+        margin: 0 0 8px 0;
+    }
+
   }
 
   

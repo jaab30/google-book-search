@@ -6,6 +6,28 @@
 
 }
 
+@media screen and (min-width: 1000px) and (max-width: 1199px){
+    .resultListDiv {
+        /* background: black; */
+        display: grid;
+        grid-template-columns: 3% 94% 3%;
+        padding: 0 0 25px 0;
+    
+    }
+
+}
+
+@media screen and (min-width: 300px) and (max-width: 1000px){
+    .resultListDiv {
+        /* background: black; */
+        display: grid;
+        grid-template-columns: 1% 98% 1%;
+        padding: 0 0 25px 0;
+    
+    }
+
+}
+
 
 /* font-family: 'Patua One', cursive;
 font-family: 'Cherry Cream Soda', cursive;

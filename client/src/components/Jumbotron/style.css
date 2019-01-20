@@ -23,9 +23,6 @@ h2 {
     color: black;
     font-size: 2em;
     margin: 0;
-    
-
-
 }
 
 .jumboImg {
@@ -34,11 +31,24 @@ h2 {
     width: 100px;
     height: auto;
     opacity:1;
-
-
-
 }
 
+@media screen and (max-width: 630px) {
+    .jumbotron {
+        height: 200px;
+    }
+    h1 {
+        font-size: 1.9em;
+    }
+    
+    h2 {
+        font-size: 1.5em;
+    }
+    
+    .jumboImg {
+        width: 70px;
+    }
+}
 
 /* font-family: 'Patua One', cursive;
 font-family: 'Cherry Cream Soda', cursive;

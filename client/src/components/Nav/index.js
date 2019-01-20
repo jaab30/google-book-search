@@ -7,7 +7,7 @@ function Nav() {
     <ul className="">
       <li className="">
         <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
-        <img className="navImg" src="./assets/img/books.png"></img>
+          <img className="navImg" alt="Books Icon" src="./assets/img/books.png"></img>
         </Link>
       </li>
       <li className="nav-item">

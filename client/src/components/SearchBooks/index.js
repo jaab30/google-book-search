@@ -4,7 +4,6 @@ import Form from "../Form";
 import ResultsListItem from "../ResultsListItem";
 import ResultsList from "../ResultsList";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
 import "./style.css"
 
 
@@ -26,7 +25,7 @@ class SearchBooks extends Component {
     loadBooks = event => {
         event.preventDefault();
         if (this.state.search === "") {
-            alert("Please andter a Book Title")
+            alert("Please enter a Book Title")
         } else {
             API.search(this.state.search)
                 .then(res => {
@@ -40,11 +39,9 @@ class SearchBooks extends Component {
                             for (let i = 0; i < res.data.length; i++) {
                                 let title = res.data[i].title
                                 for (let j = 0; j < this.state.books.length; j++) {
-                                    console.log(this.state.books)
-                                    if (title == this.state.books[j].volumeInfo.title) {
+                                    if (title === this.state.books[j].volumeInfo.title) {
                                         let newBookArray = [...this.state.books]
                                         newBookArray.splice([j], 1)
-                                        console.log(newBookArray)
                                         this.setState({ books: newBookArray })
                                     }
                                 }
@@ -68,7 +65,6 @@ class SearchBooks extends Component {
             .then(res => {
                 let newBookArray = [...this.state.books]
                 newBookArray.splice([id], 1)
-                console.log(newBookArray)
                 this.setState({ books: newBookArray })
             })
             .catch(err => console.log(err));
@@ -81,7 +77,7 @@ class SearchBooks extends Component {
                 <Jumbotron
                     title={"Google Books Search"}
                     subTitle={"Search for and Save Books of interest"}>
-                    </Jumbotron>
+                </Jumbotron>
                 <Form
                     query={this.state.search}
                     handleInputChange={this.handleInputChange}
@@ -108,7 +104,6 @@ class SearchBooks extends Component {
 
                         } else {
                             return (
-                                console.log(book.volumeInfo.imageLinks),
                                 <ResultsListItem
                                     key={i}
                                     bookId={i}

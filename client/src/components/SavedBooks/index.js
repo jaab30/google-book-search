@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
-import Form from "../../components/Form";
-import ResultsListItem from "../../components/ResultsListItem";
 import ResultsList from "../../components/ResultsList";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
@@ -43,7 +41,9 @@ class SavedBooks extends Component {
                 </Jumbotron>
                 {this.state.books.map((book, i) => {
                     return (
-                        <ResultsList>
+                        <ResultsList
+                        key={i}
+                        >
                             <div className="savedItemDiv">
                                 <div className="imgDivSaved">
                                     <img alt={book.title} src={book.image} />
@@ -51,7 +51,7 @@ class SavedBooks extends Component {
                                 <h2 className={book._id}>Title: {book.title}</h2>
                                 <h3 className="subTitleSaved">{book.subtitle}</h3>
                                 <p className="authorSaved">Written by: {book.authors}</p>
-                                <p className="descriptionSaved">Description: {book.description}</p>
+                                <p className="descriptionSaved">{book.description}</p>
                                 <Link to={`//${book.link.substring(7)}`} target="_blank">
                                     <button className="viewBtnSaved">view</button></Link>
                                 <button className="deleteBtnSaved" onClick={() => this.deleteBook(book._id)}>Delete</button>
@@ -59,13 +59,7 @@ class SavedBooks extends Component {
                         </ResultsList>
                     );
                 })}
-
-
             </div>
-
-
-
-
         )
     }
 }
