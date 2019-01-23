@@ -86,7 +86,7 @@ a {
     grid-row-start: 1;
     border: none;
     background: #2a972a;
-    width: 65px;
+    width: 50px;
     height: 30px;
     text-align: center;
     border-radius: 5px;
@@ -104,7 +104,7 @@ a {
     font-family: 'Mukta Malar', sans-serif;
     background: #2a972a;
     border: none;
-    width: 65px;
+    width: 50px;
     height: 30px;
     text-align: center;
     border-radius: 5px;
@@ -128,11 +128,11 @@ a {
 
 }
 .btnView:active {
-    width: 66px;
+    width: 51px;
     height: 31px;
   }
 .btnSave:active {
-    width: 72px;
+    width: 51px;
     height: 31px;
   }
 .btnView:focus{
@@ -173,12 +173,12 @@ a {
     }
 
     .btnView:active {
-        width: 52px;
-        height: 21px;
+        width: 51px;
+        height: 31px;
       }
     .btnSave:active {
         width: 51px;
-        height: 21px;
+        height: 31px;
       }
 }
 
@@ -215,12 +215,12 @@ a {
     }
 
     .btnView:active {
-        width: 52px;
-        height: 21px;
+        width: 51px;
+        height: 31px;
       }
     .btnSave:active {
         width: 51px;
-        height: 21px;
+        height: 31px;
       }
 
 }
@@ -306,12 +306,12 @@ a {
     }
 
     .btnView:active {
-        width: 52px;
-        height: 21px;
+        width: 51px;
+        height: 31px;
       }
     .btnSave:active {
         width: 51px;
-        height: 21px;
+        height: 31px;
       }
 
 }
@@ -399,12 +399,12 @@ a {
     }
 
     .btnView:active {
-        width: 52px;
-        height: 21px;
+        width: 51px;
+        height: 31px;
       }
     .btnSave:active {
         width: 51px;
-        height: 21px;
+        height: 31px;
       }
 
 
