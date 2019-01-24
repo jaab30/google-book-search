@@ -218,7 +218,7 @@ a {
 
 }
 
-@media screen and (min-width: 700px) and (max-width: 1000px){
+@media screen and (min-width: 701px) and (max-width: 1000px){
 
     .savedItemDiv {
         display: grid;
