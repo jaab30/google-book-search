@@ -1,0 +1,18 @@
+.alert{
+    background-color: rgb(62, 163, 79, .8);
+    color: white;
+    width: 600px;
+    height: 25px;
+    font-family: 'Mukta Malar', sans-serif;
+    font-size: 1em;
+    padding: 5px 10px; 
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 630px) {
+    .alert {
+        width: 300px;
+        margin: 10px auto 0;
+    }
+}

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Jumbotron from "../Jumbotron";
-import Form from "../Form";
-import ResultsListItem from "../ResultsListItem";
-import ResultsList from "../ResultsList";
+import Jumbotron from "../../components/Jumbotron";
+import Form from "../../components/Form";
+import ResultsListItem from "../../components/ResultsListItem";
+import ResultsList from "../../components/ResultsList";
 import API from "../../utils/API";
 import "./style.css"
 
@@ -16,23 +16,27 @@ class SearchBooks extends Component {
     };
 
     handleInputChange = event => {
-        const { name, value } = event.target;
+
+        const value = event.target.value;
+
         this.setState({
-            [name]: value
+            search: value,
+            message: ""
         });
     };
 
     loadBooks = event => {
         event.preventDefault();
         if (this.state.search === "") {
-            alert("Please enter a Book Title")
+            this.setState({ message: "Please enter a Book Title" })
         } else {
             API.search(this.state.search)
                 .then(res => {
-                    this.setState({ books: res.data.items, search: "", })
-                }
-                )
-
+                    this.setState({
+                        books: res.data.items,
+                        search: "",
+                    })
+                })
                 .then(res => {
                     API.getBooks()
                         .then(res => {
@@ -82,6 +86,7 @@ class SearchBooks extends Component {
                     query={this.state.search}
                     handleInputChange={this.handleInputChange}
                     loadBooks={this.loadBooks}
+                    message={this.state.message}
                 >
                 </Form>
                 <ResultsList>

@@ -1,7 +1,6 @@
 import React from "react";
+import Alert from "../Alert";
 import "./style.css"
-
-// This file exports the Input, TextArea, and FormBtn components
 
 export function Form(props) {
 
@@ -15,7 +14,9 @@ export function Form(props) {
         name="search"
         value={props.query}
       />
+
       <button className="formBtn" onClick={props.loadBooks} type="success">Submit</button>
+      {!props.message ? "" : <Alert>{props.message}</Alert>}
     </form>
   )
 

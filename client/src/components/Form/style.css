@@ -1,6 +1,7 @@
 .formContainer{
+    /* width:100%; */
     text-align: center;
-    margin: 10px;
+    /* margin: 10px; */
 }
 
 .formInput {
@@ -43,6 +44,10 @@
   }
 
   @media screen and (max-width: 630px) {
+
+    .formContainer{
+        width:100%;
+    }
 
     .formInput {
         width: 300px;

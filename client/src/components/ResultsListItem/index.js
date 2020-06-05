@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./style.css";
 
 function ResultListItem(props) {
+  console.log(props.link);
+
   return (
     <div className="resultItemDiv">
       <div className="imgDiv">
@@ -11,10 +12,10 @@ function ResultListItem(props) {
       <h2>{props.title}</h2>
       <p className="subTitle">{props.subtitle}</p>
       <p className="author">Written by: {props.authors}</p>
-      <p className="description">{props.description}</p>
+      <p className="description">{!props.description ? "This Book does not have a summary available." : props.description}</p>
 
-      <Link to={`//${props.link.substring(7)}`} target="_blank">
-        <button className="btnView">View</button></Link>
+      <a href={props.link} target="_blank" rel="noopener noreferrer">
+        <button className="btnView">View</button></a>
       <button onClick={() => props.saveBook(props.bookId)} className="btnSave">Save</button>
     </div>
   );
