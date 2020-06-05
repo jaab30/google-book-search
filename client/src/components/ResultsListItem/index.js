@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 
 function ResultListItem(props) {
-  console.log(props.link);
 
   return (
     <div className="resultItemDiv">
