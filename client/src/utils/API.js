@@ -1,10 +1,11 @@
 import axios from "axios";
 
 const BASEURL = "https://www.googleapis.com/books/v1/volumes?q=";
+const ENDURL = "&maxResults=20&orderBy=relevance"
 
 export default {
   search: function (query) {
-    return axios.get(BASEURL + query);
+    return axios.get(BASEURL + query + ENDURL);
   },
   // Gets all books
   getBooks: function () {

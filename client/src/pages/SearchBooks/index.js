@@ -40,30 +40,43 @@ class SearchBooks extends Component {
                 .then(res => {
                     API.getBooks()
                         .then(res => {
-                            for (let i = 0; i < res.data.length; i++) {
-                                let title = res.data[i].title
+                            res.data.forEach(item => {
                                 for (let j = 0; j < this.state.books.length; j++) {
-                                    if (title === this.state.books[j].volumeInfo.title) {
+                                    if (item.title === this.state.books[j].volumeInfo.title) {
                                         let newBookArray = [...this.state.books]
                                         newBookArray.splice([j], 1)
                                         this.setState({ books: newBookArray })
                                     }
                                 }
-                            }
+                            })
                         })
                 })
                 .catch(err => console.log(err));
         }
     }
 
-
     saveBook = (id) => {
+
+        let thumbnailImage = "";
+        if (!this.state.books[id].volumeInfo.hasOwnProperty("imageLinks")) {
+            thumbnailImage = this.state.imageLink
+        } else {
+            thumbnailImage = this.state.books[id].volumeInfo.imageLinks.thumbnail
+        }
+        let authors = "";
+        if (this.state.books[id].volumeInfo.authors === undefined) {
+            authors = ""
+        } else {
+            authors = this.state.books[id].volumeInfo.authors.join(", ")
+        }
+
+
         API.saveBook({
             title: this.state.books[id].volumeInfo.title,
             subtitle: this.state.books[id].volumeInfo.subtitle,
-            authors: this.state.books[id].volumeInfo.authors,
+            authors,
             description: this.state.books[id].volumeInfo.description,
-            image: this.state.books[id].volumeInfo.imageLinks.thumbnail,
+            image: thumbnailImage,
             link: this.state.books[id].volumeInfo.previewLink
         })
             .then(res => {
@@ -91,39 +104,20 @@ class SearchBooks extends Component {
                 </Form>
                 <ResultsList>
                     {this.state.books.map((book, i) => {
-                        if (book.volumeInfo.imageLinks === undefined) {
-                            return (
-                                <ResultsListItem
-                                    key={i}
-                                    bookId={i}
-                                    title={book.volumeInfo.title}
-                                    subtitle={book.volumeInfo.subtitle}
-                                    authors={book.volumeInfo.authors}
-                                    description={book.volumeInfo.description}
-                                    image={this.state.imageLink}
-                                    link={book.volumeInfo.previewLink}
-                                    saveBook={this.saveBook}
-                                    onMyListText={this.state.onMyListText}
-                                />
-                            )
-
-                        } else {
-                            return (
-                                <ResultsListItem
-                                    key={i}
-                                    bookId={i}
-                                    title={book.volumeInfo.title}
-                                    subtitle={book.volumeInfo.subtitle}
-                                    authors={book.volumeInfo.authors}
-                                    description={book.volumeInfo.description}
-                                    image={book.volumeInfo.imageLinks.thumbnail}
-                                    link={book.volumeInfo.previewLink}
-                                    saveBook={this.saveBook}
-                                    onMyListText={this.state.onMyListText}
-                                />
-                            );
-                        }
-
+                        return (
+                            <ResultsListItem
+                                key={i}
+                                bookId={i}
+                                title={book.volumeInfo.title}
+                                subtitle={book.volumeInfo.subtitle}
+                                authors={book.volumeInfo.authors}
+                                description={book.volumeInfo.description}
+                                image={book.volumeInfo.imageLinks === undefined ? this.state.imageLink : book.volumeInfo.imageLinks.thumbnail}
+                                link={book.volumeInfo.previewLink}
+                                saveBook={this.saveBook}
+                                onMyListText={this.state.onMyListText}
+                            />
+                        )
                     })}
                 </ResultsList>
             </div>
